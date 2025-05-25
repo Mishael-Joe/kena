@@ -38,7 +38,7 @@ export default async function LandingPage() {
   const data = await client.fetch<SanityDocument>(HOMEPAGE_QUERY, {}, options);
 
   return (
-    <div className="bg-white px-6 py-12 lg:px-20 space-y-16">
+    <div className="bg-white px-6 py-6 lg:px-20 space-y-16">
       {/* Hero Section */}
       <section className="grid md:grid-cols-2 gap-10 items-center">
         <div>
