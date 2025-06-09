@@ -10,13 +10,15 @@ import {
 
 import { type SanityDocument } from "next-sanity";
 import { client } from "@/sanity/lib/client";
+import Image from "next/image";
+import { Slides } from "@/components/slides";
 
 const HOMEPAGE_QUERY = `*[_type == "homePage"][0] {
   heroHeading,
   heroSubtextOne,
   heroSubtextTwo,
   heroButtonText,
-  "videoUrl": videoFile.asset->url,
+  // "videoUrl": videoFile.asset->url,
   services[]{
     icon,
     title,
@@ -42,7 +44,7 @@ export default async function LandingPage() {
       {/* Hero Section */}
       <section className="grid md:grid-cols-2 gap-10 items-center">
         <div>
-          <h1 className="text-4xl md:text-5xl font-serif font-bold leading-tight">
+          <h1 className="text-4xl md:text-5xl font-serif font-bold leading-tight text-foreground">
             {data.heroHeading}
           </h1>
           <p className="text-muted-foreground mt-4 text-lg">
@@ -57,9 +59,9 @@ export default async function LandingPage() {
         </div>
 
         {/* Video Section */}
-        {/* Video Section */}
-        <div className="aspect-video bg-gray-200 rounded-lg flex items-center justify-center overflow-hidden">
-          {data?.videoUrl ? (
+        <div className="relative aspect-video">
+          {/* <div className="aspect-video bg-gray-200 rounded-lg flex items-center justify-center overflow-hidden"> */}
+          {/* {data?.videoUrl ? (
             <video
               controls
               className="w-full h-full rounded-lg object-cover"
@@ -67,7 +69,15 @@ export default async function LandingPage() {
             />
           ) : (
             <PlayCircle className="w-14 h-14 text-gray-500" />
-          )}
+          )} */}
+
+          <Image
+            src={`/hero-img.jpeg`}
+            fill
+            priority
+            alt="Hero Image"
+            className=" object-cover rounded-lg"
+          />
         </div>
 
         {/* <div className="aspect-video bg-gray-200 rounded-lg flex items-center justify-center">
@@ -95,7 +105,7 @@ export default async function LandingPage() {
               <h3 className="text-xl font-semibold">{service.title}</h3>
               <p className="text-muted-foreground">{service.summary}</p>
               <p className="text-sm text-gray-500">{service.details}</p>
-              <Button variant="outline">Learn More</Button>
+              {/* <Button variant="outline">Learn More</Button> */}
             </CardContent>
           </Card>
         ))}
