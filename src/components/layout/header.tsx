@@ -15,7 +15,7 @@ export default function Header() {
           <span className="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-white font-bold">
             V
           </span>
-          <span className="font-semibold text-xl hidden sm:inline-block">
+          <span className="font-semibold text-xl hidden sm:inline-block text-primary">
             Ziv
           </span>
         </Link>
