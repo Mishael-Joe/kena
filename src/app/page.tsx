@@ -11,7 +11,6 @@ import {
 import { type SanityDocument } from "next-sanity";
 import { client } from "@/sanity/lib/client";
 import Image from "next/image";
-import { Slides } from "@/components/slides";
 
 const HOMEPAGE_QUERY = `*[_type == "homePage"][0] {
   heroHeading,
